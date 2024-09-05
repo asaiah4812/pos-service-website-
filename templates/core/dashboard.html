@@ -1,0 +1,420 @@
+{% extends 'layout/dash_layout.html' %}
+
+{% block layout %}
+
+ <div class="px-6 pt-6 2xl:container">
+      <div class="grid gap-6 md:grid-cols-3 xl:grid-cols-4">
+        <div class="md:col-span-2 lg:col-span-1">
+          <div class="h-full space-y-6 group p-6 sm:p-8 rounded-3xl bg-white border border-gray-200/50 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
+              <!-- Gauge Component -->
+<div class="relative size-40 mx-auto">
+  <svg class="rotate-[135deg] size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle (Gauge) -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-200 dark:text-neutral-700" stroke-width="1.5" stroke-dasharray="75 100" stroke-linecap="round"></circle>
+
+    <!-- Gauge Progress -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current {% if store_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %}"  stroke-width="1.5" stroke-dasharray="{{store_total}}.5 100" stroke-linecap="round"></circle>
+  </svg>
+
+  <!-- Value Text -->
+  <div class="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+    <span class="text-4xl font-bold {% if store_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %}">{{store_total}}</span>
+    <span class="{% if store_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %} block">Stores</span>
+  </div>
+</div>
+<!-- End Gauge Component -->
+            <div>
+              <div class="mt-2 flex justify-center gap-4">
+                <h3 class="text-3xl font-bold text-gray-700 dark:text-white">Total Stores</h3>
+                <div class="flex items-end gap-1 text-green-500">
+                  <svg
+                    class="w-3"
+                    viewBox="0 0 12 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6.00001 0L12 8H-3.05176e-05L6.00001 0Z" fill="currentColor" />
+                  </svg>
+                  <span>2%</span>
+                </div>
+              </div>
+              <span class="block text-center text-gray-500 dark:text-gray-400">Compared to last week 3</span>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-2 lg:col-span-1">
+          <div class="h-full space-y-6 group p-6 sm:p-8 rounded-3xl bg-white border border-gray-200/50 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
+              <!-- Gauge Component -->
+<div class="relative size-40 mx-auto">
+  <svg class="rotate-[135deg] size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle (Gauge) -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-200 dark:text-neutral-700" stroke-width="1.5" stroke-dasharray="75 100" stroke-linecap="round"></circle>
+
+    <!-- Gauge Progress -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current {% if store_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %}"  stroke-width="1.5" stroke-dasharray="{{supplier_total}}.5 100" stroke-linecap="round"></circle>
+  </svg>
+
+  <!-- Value Text -->
+  <div class="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+    <span class="text-4xl font-bold {% if buyer_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %}">{{buyer_total}}</span>
+    <span class="{% if buyer_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %} block">Buyers</span>
+  </div>
+</div>
+<!-- End Gauge Component -->
+            <div>
+              <div class="mt-2 flex justify-center gap-4">
+                <h3 class="text-3xl font-bold text-gray-700 dark:text-white">Total Buyers</h3>
+                <div class="flex items-end gap-1 text-green-500">
+                  <svg
+                    class="w-3"
+                    viewBox="0 0 12 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6.00001 0L12 8H-3.05176e-05L6.00001 0Z" fill="currentColor" />
+                  </svg>
+                  <span>2%</span>
+                </div>
+              </div>
+              <span class="block text-center text-gray-500 dark:text-gray-400">Compared to last week 3</span>
+            </div>
+          </div>
+        </div>
+        <div class="md:col-span-2 lg:col-span-1">
+          <div class="h-full space-y-6 group p-6 sm:p-8 rounded-3xl bg-white border border-gray-200/50 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10">
+              <!-- Gauge Component -->
+<div class="relative size-40 mx-auto">
+  <svg class="rotate-[135deg] size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle (Gauge) -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-200 dark:text-neutral-700" stroke-width="1.5" stroke-dasharray="75 100" stroke-linecap="round"></circle>
+
+    <!-- Gauge Progress -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current {% if store_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %}"  stroke-width="1.5" stroke-dasharray="{{supplier_total}}.5 100" stroke-linecap="round"></circle>
+  </svg>
+
+  <!-- Value Text -->
+  <div class="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+    <span class="text-4xl font-bold {% if store_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %}">{{supplier_total}}</span>
+    <span class="{% if store_total < 40 %} text-orange-600 {% else %} text-blue-600 {% endif %} block">Suppliers</span>
+  </div>
+</div>
+<!-- End Gauge Component -->
+            <div>
+              <div class="mt-2 flex justify-center gap-4">
+                <h3 class="text-3xl font-bold text-gray-700 dark:text-white">Total Suppliers</h3>
+                <div class="flex items-end gap-1 text-green-500">
+                  <svg
+                    class="w-3"
+                    viewBox="0 0 12 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6.00001 0L12 8H-3.05176e-05L6.00001 0Z" fill="currentColor" />
+                  </svg>
+                  <span>2%</span>
+                </div>
+              </div>
+              <span class="block text-center text-gray-500 dark:text-gray-400">Compared to last week 3</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="group p-6 sm:p-8 rounded-3xl bg-white border border-gray-200/50 dark:shadow-none dark:border-gray-700 dark:bg-gray-800 bg-opacity-50 shadow-2xl shadow-gray-600/10 lg:h-full">
+            <!-- Gauge Component -->
+<div class="relative size-40 mx-auto">
+  <svg class="rotate-[135deg] size-full" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background Circle (Gauge) -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-gray-200 dark:text-neutral-700" stroke-width="1.5" stroke-dasharray="75 100" stroke-linecap="round"></circle>
+
+    <!-- Gauge Progress -->
+    <circle cx="18" cy="18" r="16" fill="none" class="stroke-current text-blue-600 dark:text-blue-500" stroke-width="1.5" stroke-dasharray="37.5 100" stroke-linecap="round"></circle>
+  </svg>
+
+  <!-- Value Text -->
+  <div class="absolute top-1/2 start-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+    <span class="text-4xl font-bold text-blue-600 dark:text-blue-500" id="counter">100</span>
+    <span class="text-blue-600 dark:text-blue-500 block">Products</span>
+  </div>
+</div>
+<!-- End Gauge Component -->
+            <div class="mt-6">
+              <h5 class="text-center text-xl text-gray-700 dark:text-gray-300">New Products</h5>
+              <div class="mt-2 flex justify-center gap-4">
+                <h3 class="text-3xl font-bold text-gray-700 dark:text-white">28</h3>
+                <div class="flex items-end gap-1 text-green-500">
+                  <svg
+                    class="w-3"
+                    viewBox="0 0 12 15"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6.00001 0L12 8H-3.05176e-05L6.00001 0Z" fill="currentColor" />
+                  </svg>
+                  <span>2%</span>
+                </div>
+              </div>
+              <span class="block text-center text-gray-500">Compared to last week 13</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="md:w-[90%] ml-6 flex flex-col gap-4">
+      <h1 class="text-2xl md:text-3xl font-medium py-2 px-1.5 rounded-md bg-white shadow-md mt-4">Company Orders</h1>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <div class="pb-4 bg-white dark:bg-gray-900">
+              <label for="table-search" class="sr-only">Search</label>
+              <div class="relative mt-1">
+                  <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
+                      <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                      </svg>
+                  </div>
+                  <input type="text" id="table-search" class="block pt-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items">
+              </div>
+          </div>
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                      <th scope="col" class="p-4">
+                          <div class="flex items-center">
+                              <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                              <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                          </div>
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Product name
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Color
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Category
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Price
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Action
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <td class="w-4 p-4">
+                          <div class="flex items-center">
+                              <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                              <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                          </div>
+                      </td>
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Apple MacBook Pro 17"
+                      </th>
+                      <td class="px-6 py-4">
+                          Silver
+                      </td>
+                      <td class="px-6 py-4">
+                          Laptop
+                      </td>
+                      <td class="px-6 py-4">
+                          $2999
+                      </td>
+                      <td class="px-6 py-4">
+                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <td class="w-4 p-4">
+                          <div class="flex items-center">
+                              <input id="checkbox-table-search-2" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                              <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
+                          </div>
+                      </td>
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Microsoft Surface Pro
+                      </th>
+                      <td class="px-6 py-4">
+                          White
+                      </td>
+                      <td class="px-6 py-4">
+                          Laptop PC
+                      </td>
+                      <td class="px-6 py-4">
+                          $1999
+                      </td>
+                      <td class="px-6 py-4">
+                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <td class="w-4 p-4">
+                          <div class="flex items-center">
+                              <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                              <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                          </div>
+                      </td>
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Magic Mouse 2
+                      </th>
+                      <td class="px-6 py-4">
+                          Black
+                      </td>
+                      <td class="px-6 py-4">
+                          Accessories
+                      </td>
+                      <td class="px-6 py-4">
+                          $99
+                      </td>
+                      <td class="px-6 py-4">
+                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <td class="w-4 p-4">
+                          <div class="flex items-center">
+                              <input id="checkbox-table-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                              <label for="checkbox-table-3" class="sr-only">checkbox</label>
+                          </div>
+                      </td>
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Apple Watch
+                      </th>
+                      <td class="px-6 py-4">
+                          Silver
+                      </td>
+                      <td class="px-6 py-4">
+                          Accessories
+                      </td>
+                      <td class="px-6 py-4">
+                          $179
+                      </td>
+                      <td class="px-6 py-4">
+                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <td class="w-4 p-4">
+                          <div class="flex items-center">
+                              <input id="checkbox-table-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                              <label for="checkbox-table-3" class="sr-only">checkbox</label>
+                          </div>
+                      </td>
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          iPad
+                      </th>
+                      <td class="px-6 py-4">
+                          Gold
+                      </td>
+                      <td class="px-6 py-4">
+                          Tablet
+                      </td>
+                      <td class="px-6 py-4">
+                          $699
+                      </td>
+                      <td class="px-6 py-4">
+                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                      </td>
+                  </tr>
+                  <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <td class="w-4 p-4">
+                          <div class="flex items-center">
+                              <input id="checkbox-table-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                              <label for="checkbox-table-3" class="sr-only">checkbox</label>
+                          </div>
+                      </td>
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                          Apple iMac 27"
+                      </th>
+                      <td class="px-6 py-4">
+                          Silver
+                      </td>
+                      <td class="px-6 py-4">
+                          PC Desktop
+                      </td>
+                      <td class="px-6 py-4">
+                          $3999
+                      </td>
+                      <td class="px-6 py-4">
+                          <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+    </div>
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    const targetNumber = 100; // Replace with your initial number
+    const duration = 25000; // Duration in milliseconds
+    const counterElement = document.getElementById('counter');
+    
+    let start = 0;
+    const increment = targetNumber / (duration / 100); // Calculate increment based on duration
+
+    function updateCounter() {
+        start += increment;
+        if (start >= targetNumber) {
+            counterElement.textContent = targetNumber;
+        } else {
+            counterElement.textContent = Math.floor(start);
+            requestAnimationFrame(updateCounter);
+        }
+    }
+
+    requestAnimationFrame(updateCounter);
+});
+    </script>
+
+{% endblock %}
+                    
+
+
+
+<!-- chart svg -->
+
+<!-- <svg
+              class="w-full"
+              viewBox="0 0 218 69"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 67.5C27.8998 67.5 24.6002 15 52.5 15C80.3998 15 77.1002 29 105 29C132.9 29 128.6 52 156.5 52C184.4 52 189.127 63.8158 217.027 63.8158"
+                stroke="url(#paint0_linear_622:13664)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M0 67.5C27.2601 67.5 30.7399 31 58 31C85.2601 31 80.7399 2 108 2C135.26 2 134.74 43 162 43C189.26 43 190.74 63.665 218 63.665"
+                stroke="url(#paint1_linear_622:13664)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <defs>
+                <linearGradient
+                  id="paint0_linear_622:13664"
+                  x1="217.027"
+                  y1="15"
+                  x2="7.91244"
+                  y2="15"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#4DFFDF" />
+                  <stop offset="1" stop-color="#4DA1FF" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear_622:13664"
+                  x1="218"
+                  y1="18.3748"
+                  x2="5.4362"
+                  y2="18.9795"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#E323FF" />
+                  <stop offset="1" stop-color="#7517F8" />
+                </linearGradient>
+              </defs>
+            </svg> -->

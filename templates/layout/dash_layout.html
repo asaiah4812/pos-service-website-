@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+                    <body class="bg-gray-100 dark:bg-gray-900">
+ <!-- {% include 'includes/dash-sidebar.html' %} -->
+ {% load sidebar %}
+{% sidebar_view request %}
+  <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+    {% include 'includes/dash-navbar.html' %}
+
+   {% block layout %}
+
+   {% endblock %}
+  </div>
+</body>
+                                    
+
+{% endblock %}
